@@ -39,6 +39,7 @@ dependencies:
   permission_handler:
   device_info:
   on_audio_query:
+  file_picker:
 
 dev_dependencies:
   flutter_test:

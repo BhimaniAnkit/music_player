@@ -3,6 +3,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:music_player/songs.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -77,12 +78,15 @@ class _firstState extends State<first> {
                 return Card(
                   child: ListTile(
                     onTap: () {
-                      if(player.state == PlayerState.playing){
-                        player.pause();
-                      }
-                      else{
-                        player.play(DeviceFileSource("${l[index].data}"));
-                      }
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return songs(l,index);
+                      },));
+                      // if(player.state == PlayerState.playing){
+                      //   player.pause();
+                      // }
+                      // else{
+                      //   player.play(DeviceFileSource("${l[index].data}"));
+                      // }
                     },
                     title: Text("${l[index].displayName}"),
                   ),
