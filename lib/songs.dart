@@ -21,6 +21,7 @@ class songs extends StatefulWidget {
 class _songsState extends State<songs> {
 
   final player = AudioPlayer();
+  bool checkPlay = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class _songsState extends State<songs> {
                 height: 380,
                 width: 380,
                 padding: EdgeInsets.only(left: 10.0,top: 10.0,right: 0.0),
-                child: Image.asset(""),
+                child: Image.asset("pic/music_images.jpg"),
               ),
             ],
           )),
@@ -57,13 +58,19 @@ class _songsState extends State<songs> {
               ),
               IconButton(onPressed: () {
                 if(player.state == PlayerState.playing){
+                  print("hello");
                   player.pause();
+                  checkPlay = true;
+                  setState(() {});
                 }
                 else{
                   player.play(DeviceFileSource("${widget.l[widget.index].data}"));
+                  checkPlay = false;
+                  setState(() {});
                 }
               },
-                icon: (PlayerState.playing == true) ? Icon(Icons.play_circle_fill_sharp,) : Icon(Icons.pause),
+                // icon: (),
+                icon: (checkPlay == true) ? Icon(Icons.pause) : Icon(Icons.play_circle_fill_sharp,),
                 splashRadius: 30.0,
                 iconSize: 50,
                 tooltip: "Play Current Song",

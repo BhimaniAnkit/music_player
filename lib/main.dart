@@ -3,6 +3,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:music_player/songs.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -67,7 +68,11 @@ class _firstState extends State<first> {
         future: _audioQuery.querySongs(),
         builder: (context, snapshot) {
           if(snapshot.connectionState == ConnectionState.waiting){
-            return CircularProgressIndicator();
+            // return CircularProgressIndicator();
+            return LoadingAnimationWidget.fourRotatingDots(
+                color: Colors.white,
+                size: 200
+            );
           }
           else{
             List<SongModel> l = snapshot.data as List<SongModel>;
