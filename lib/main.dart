@@ -32,6 +32,26 @@ class _firstState extends State<first> {
     permission();
   }
 
+  // permission()async{
+  //   // var status = await Permission.storage.status;
+  //   // if (status.isDenied) {
+  //   //   Map<Permission, PermissionStatus> statuses = await [
+  //   //     Permission.location,
+  //   //     Permission.storage,
+  //   //   ].request();
+  //   // }
+  //   var status = await Permission.storage.status;
+  //   if(status != PermissionStatus.granted){
+  //     status = await Permission.storage.request();
+  //   }
+  //   if(status == PermissionStatus.granted){
+  //     print('Permission granted!');
+  //   }
+  //   else{
+  //     print('Permission denied!');
+  //   }
+  // }
+
   permission() async {
     if(Platform.isAndroid){
       var androidInfo = await DeviceInfoPlugin().androidInfo;

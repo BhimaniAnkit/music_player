@@ -43,6 +43,7 @@ dependencies:
   loading_animation_widget: ^1.2.0+4
   audio_video_progress_bar: ^2.0.1
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
